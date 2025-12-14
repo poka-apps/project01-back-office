@@ -1,13 +1,7 @@
-import { LoginPage } from '@/pages/login';
+import { AppRoutes } from './AppRoutes';
 
 export const App = () => {
 
-  return <LoginPage />;
-
-  return (
-    <div>
-      Main page
-    </div>
-  );
+  return <AppRoutes />;
 
 };
