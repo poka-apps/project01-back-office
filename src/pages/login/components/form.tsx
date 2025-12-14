@@ -14,7 +14,7 @@ import {
   Card,
 } from '@/components/shadcn';
 
-export const LoginPage = () => {
+export const Form = () => {
   return (
     <div className={cn('flex flex-col gap-6')}>
       <Card>
