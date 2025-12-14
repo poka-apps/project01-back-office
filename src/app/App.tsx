@@ -1,11 +1,11 @@
-import reactLogo from '../assets/react.svg';
+import reactLogo from '../assets/images/svg/react.svg';
 import { useState } from 'react';
 import viteLogo from '/vite.svg';
 import './App.css';
 
 export const App = () => {
 
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <>
