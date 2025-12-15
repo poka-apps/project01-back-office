@@ -1,4 +1,4 @@
-import { AppSidebar } from '@/components/app-sidebar';
+import { AppSidebar } from '@/components/AppSidebar';
 import {
   BreadcrumbSeparator,
   SidebarProvider,

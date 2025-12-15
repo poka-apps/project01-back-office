@@ -1,10 +1,10 @@
 'use client';
 
 import { SidebarContent, SidebarFooter, SidebarHeader, SidebarRail, Sidebar } from '@/components/shadcn';
-import { TeamSwitcher } from '@/components/team-switcher';
-import { NavProjects } from '@/components/nav-projects';
-import { NavMain } from '@/components/nav-main';
-import { NavUser } from '@/components/nav-user';
+import { AppSidebarTeamSwitcher } from './AppSidebarTeamSwitcher';
+import { AppSidebarProjects } from './AppSidebarProjects';
+import { AppSidebarUser } from './AppSidebarUser';
+import { AppSidebarMain } from './AppSidebarMain';
 import * as React from 'react';
 import {
   GalleryVerticalEnd,
@@ -152,14 +152,14 @@ const data = {
 export const AppSidebar = ({ ...props }: React.ComponentProps<typeof Sidebar>) => (
   <Sidebar collapsible='icon' {...props}>
     <SidebarHeader>
-      <TeamSwitcher teams={data.teams} />
+      <AppSidebarTeamSwitcher teams={data.teams} />
     </SidebarHeader>
     <SidebarContent>
-      <NavMain items={data.navMain} />
-      <NavProjects projects={data.projects} />
+      <AppSidebarMain items={data.navMain} />
+      <AppSidebarProjects projects={data.projects} />
     </SidebarContent>
     <SidebarFooter>
-      <NavUser user={data.user} />
+      <AppSidebarUser user={data.user} />
     </SidebarFooter>
     <SidebarRail />
   </Sidebar>
