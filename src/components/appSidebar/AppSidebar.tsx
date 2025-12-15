@@ -1,9 +1,9 @@
 'use client';
 
 import { SidebarContent, SidebarFooter, SidebarHeader, SidebarRail, Sidebar } from '@/components/shadcn';
-import { AppSidebarTeamSwitcher } from '../AppSidebarTeamSwitcher';
-import { AppSidebarProjects } from '../AppSidebarProjects';
-import { AppSidebarUser } from '../AppSidebarUser';
+import { AppSidebarTeamSwitcher } from './AppSidebarTeamSwitcher';
+import { AppSidebarProjects } from './AppSidebarProjects';
+import { AppSidebarUser } from './AppSidebarUser';
 import { AppSidebarMain } from './AppSidebarMain';
 import * as React from 'react';
 import {
