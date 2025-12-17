@@ -1,4 +1,5 @@
 export * from './NotFound';
-export * from './layout';
+export * from './Page1';
+export * from './Page2';
 export * from './login';
 export * from './Home';
