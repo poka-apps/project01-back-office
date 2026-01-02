@@ -1,13 +1,9 @@
 import { AvatarFallback, AvatarImage, Avatar } from '@/components/shadcn';
-
-const CONSTS = {
-  name: 'shadcn',
-  avatar: '/avatars/shadcn.jpg'
-};
+import { useUserConnected } from '@/hooks';
 
 export const AppSidebarUserBanner = () => {
 
-  const { name, avatar } = CONSTS;
+  const { name, avatar } = useUserConnected();
 
   return (
     <Avatar className='h-8 w-8 rounded-lg'>
