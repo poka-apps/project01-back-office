@@ -18,6 +18,7 @@ export const Form = () => {
   const handleOnClick = () =>
     handleSubmit(
       data => {
+        console.log(data);
         navigate(ROUTES.dashboard, { state: 12345 });
       }
     )();
