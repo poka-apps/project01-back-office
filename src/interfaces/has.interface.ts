@@ -1,4 +1,6 @@
 import type { LucideIcon } from 'lucide-react';
+import type { TSortType } from '@/types';
+import type { ReactNode } from 'react';
 
 export interface IHasOptOpen {
   open?: boolean;
@@ -46,4 +48,92 @@ export interface IHasOptClassName<T = string> {
 
 export interface IHasClassName<T = string> {
   className: T;
+}
+
+export interface IHasOptData<T = any> {
+  data?: T;
+}
+
+export interface IHasData<T = any> {
+  data: T;
+}
+
+export interface IHasOptTotal<T = number> {
+  total?: T;
+}
+
+export interface IHasTotal<T = number> {
+  total: T;
+}
+
+export interface IHasOptPage<T = number> {
+  page?: T;
+}
+
+export interface IHasPage<T = number> {
+  page: T;
+}
+
+export interface IHasOptSortType<T = TSortType> {
+  sortType?: T;
+}
+
+export interface IHasSortType<T = TSortType> {
+  sortType: T;
+}
+
+export interface IHasOptSortBy<T = string> {
+  sortBy?: T;
+}
+
+export interface IHasSortBy<T = string> {
+  sortBy: T;
+}
+
+export interface IHasOptDefaultValue<T = any> {
+  defaultValue?: T;
+}
+
+export interface IHasDefaultValue<T = any> {
+  defaultValue: T;
+}
+
+export interface IHasOptValue<T = any> {
+  value?: T;
+}
+
+export interface IHasValue<T = any> {
+  value: T;
+}
+
+export interface IHasOptRequired<T = boolean> {
+  required?: T;
+}
+
+export interface IHasRequired<T = boolean> {
+  required: T;
+}
+
+export interface IHasOptGroup<T = ReactNode> {
+  group?: T;
+}
+
+export interface IHasGroup<T = ReactNode> {
+  group: T;
+}
+
+export interface IHasOptTitle<T = ReactNode> {
+  title?: T;
+}
+
+export interface IHasTitle<T = ReactNode> {
+  title: T;
+}
+
+export interface IHasOptDisabled {
+  disabled?: boolean;
+}
+
+export interface IHasDisabled {
+  disabled: boolean;
 }
