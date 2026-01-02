@@ -24,13 +24,15 @@ type TProps = {
   }[]
 };
 
-export const AppSidebarProjects = ({ projects }: TProps) => {
+export const AppSidebarModules = ({ projects }: TProps) => {
 
   const { isMobile } = useSidebar();
 
   return (
     <SidebarGroup className='group-data-[collapsible=icon]:hidden'>
-      <SidebarGroupLabel>Projects</SidebarGroupLabel>
+      <SidebarGroupLabel>
+        Modules
+      </SidebarGroupLabel>
       <SidebarMenu>
         {
           projects

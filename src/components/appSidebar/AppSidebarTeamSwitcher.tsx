@@ -1,6 +1,8 @@
 'use client';
 
 import { ChevronsUpDown, Plus } from 'lucide-react';
+import { useSidebar } from '@/hooks';
+import { useState } from 'react';
 import * as React from 'react';
 import {
   DropdownMenuSeparator,
@@ -12,8 +14,7 @@ import {
   DropdownMenuItem,
   SidebarMenuItem,
   DropdownMenu,
-  SidebarMenu,
-  useSidebar,
+  SidebarMenu
 } from '@/components/shadcn';
 
 type TProps = {
@@ -26,8 +27,8 @@ type TProps = {
 
 export const AppSidebarTeamSwitcher = ({ teams }: TProps) => {
 
+  const [activeTeam, setActiveTeam] = useState(teams[0]);
   const { isMobile } = useSidebar();
-  const [activeTeam, setActiveTeam] = React.useState(teams[0]);
 
   if (!activeTeam) {
     return <></>;

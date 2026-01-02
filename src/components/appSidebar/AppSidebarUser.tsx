@@ -1,4 +1,5 @@
 import { BadgeCheck, Bell, ChevronsUpDown, CreditCard, LogOut, Sparkles, } from 'lucide-react'
+import { useSidebar } from '@/hooks';
 import {
   DropdownMenuSeparator,
   DropdownMenuContent,
@@ -12,8 +13,7 @@ import {
   DropdownMenu,
   SidebarMenu,
   AvatarImage,
-  useSidebar,
-  Avatar,
+  Avatar
 } from '@/components/shadcn';
 
 export type TProps = {

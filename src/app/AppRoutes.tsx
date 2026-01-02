@@ -6,18 +6,18 @@ import { ROUTES } from '@/constants';
 export const AppRoutes = () => (
   <BrowserRouter>
     <Routes>
-      {/* App avec layout */}
+      {/* App with layout */}
       <Route element={<MainLayout />}>
         <Route index element={<HomePage />} />
         <Route path={ROUTES.page1} element={<Page1 />} />
         <Route path={ROUTES.page2} element={<Page2 />} />
       </Route>
-      {/* Auth sans layout principal */}
+      {/* Auth without layout principal */}
       <Route element={<AuthLayout />}>
         <Route path={ROUTES.login} element={<LoginPage />} />
       </Route>
       {/* 404 */}
-      <Route path='*' element={<NotFoundPage />} />
+      <Route path={ROUTES.notFound} element={<NotFoundPage />} />
     </Routes>
   </BrowserRouter>
 );
