@@ -20,7 +20,16 @@ export const BrandsDataTable = () => {
     <div>
       <DataTable
         columns={columns}
-        data={[]} />
+        data={[
+          {
+            id: '1',
+            title: 'Element 1'
+          },
+          {
+            id: '2',
+            title: 'Element 2'
+          }
+        ]} />
     </div>
   );
 
