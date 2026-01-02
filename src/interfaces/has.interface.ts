@@ -153,3 +153,11 @@ export interface IHasOptDisabled {
 export interface IHasDisabled {
   disabled: boolean;
 }
+
+export interface IHasOptId<T = string> {
+  id?: T;
+}
+
+export interface IHasId<T = string> {
+  id: T;
+}

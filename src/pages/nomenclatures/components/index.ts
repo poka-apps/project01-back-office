@@ -1,3 +1,3 @@
 export * from './Header';
-export * from './Brands';
+export * from './brands';
 export * from './Models';
