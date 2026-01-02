@@ -1,6 +1,6 @@
-export const HomePage = () => {
+export const DashboardPage = () => {
 
-  console.log('Home page');
+  console.log('Dashboard page');
 
   return (
     <div className='flex flex-1 flex-col gap-4 p-4 pt-0'>

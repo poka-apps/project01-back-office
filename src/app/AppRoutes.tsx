@@ -1,4 +1,4 @@
-import { AnnoncesPage, GaragesPage, HomePage, LoginPage, NotFoundPage, UsersPage } from '@/pages';
+import { AnnoncesPage, GaragesPage, DashboardPage, LoginPage, NotFoundPage, UsersPage } from '@/pages';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { AuthLayout, MainLayout } from '@/layouts';
 import { ROUTES } from '@/constants';
@@ -8,7 +8,7 @@ export const AppRoutes = () => (
     <Routes>
       {/* App with layout */}
       <Route element={<MainLayout />}>
-        <Route index element={<HomePage />} />
+        <Route index element={<DashboardPage />} />
         <Route path={ROUTES.annonces} element={<AnnoncesPage />} />
         <Route path={ROUTES.garages} element={<GaragesPage />} />
         <Route path={ROUTES.users} element={<UsersPage />} />
