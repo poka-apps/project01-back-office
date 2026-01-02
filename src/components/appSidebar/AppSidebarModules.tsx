@@ -2,6 +2,7 @@ import { SidebarGroupLabel, SidebarMenuButton, SidebarMenuItem, SidebarGroup, Si
 import type { IHasIcon, IHasName, IHasUrl } from '@/interfaces';
 import { Newspaper, Users, Warehouse } from 'lucide-react';
 import { ROUTES } from '@/constants';
+import { Link } from 'react-router-dom';
 
 const CONSTS = {
   menus: [
@@ -24,7 +25,7 @@ const CONSTS = {
 };
 
 export const AppSidebarModules = () => (
-  <SidebarGroup className='group-data-[collapsible=icon]:hidden'>
+  <SidebarGroup>
     <SidebarGroupLabel>
       Modules
     </SidebarGroupLabel>
@@ -35,13 +36,15 @@ export const AppSidebarModules = () => (
           .map(
             item => (
               <SidebarMenuItem key={item.name}>
-                <SidebarMenuButton asChild>
-                  <a href={item.url}>
+                <SidebarMenuButton
+                  tooltip={item.name}
+                  asChild>
+                  <Link to={item.url}>
                     <item.icon />
                     <span>
                       {item.name}
                     </span>
-                  </a>
+                  </Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             )

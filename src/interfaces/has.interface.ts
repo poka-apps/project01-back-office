@@ -16,6 +16,14 @@ export interface IHasName<T = string> {
   name: T;
 }
 
+export interface IHasOptPlan<T = string> {
+  plan?: T;
+}
+
+export interface IHasPlan<T = string> {
+  plan: T;
+}
+
 export interface IHasOptUrl<T = string> {
   url?: T;
 }
