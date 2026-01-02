@@ -14,5 +14,6 @@ export * from './field';
 export * from './input';
 export * from './label';
 export * from './sheet';
+export * from './table';
 export * from './card';
 export * from './tabs';
