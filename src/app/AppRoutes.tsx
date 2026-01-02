@@ -1,4 +1,4 @@
-import { LazyAnnoncesPage, LazyGaragesPage, LazyDashboardPage, LazyLoginPage, LazyNotFoundPage, LazyUsersPage } from '@/pages';
+import { LazyAnnoncesPage, LazyGaragesPage, LazyDashboardPage, LazyLoginPage, LazyNotFoundPage, LazyUsersPage, LazyNomenclaturesPage } from '@/pages';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { AuthLayout, MainLayout } from '@/layouts';
 import { ROUTES } from '@/constants';
@@ -9,6 +9,7 @@ export const AppRoutes = () => (
       {/* App with layout */}
       <Route element={<MainLayout />}>
         <Route index element={<LazyDashboardPage />} />
+        <Route path={ROUTES.nomenclatures} element={<LazyNomenclaturesPage />} />
         <Route path={ROUTES.annonces} element={<LazyAnnoncesPage />} />
         <Route path={ROUTES.garages} element={<LazyGaragesPage />} />
         <Route path={ROUTES.users} element={<LazyUsersPage />} />

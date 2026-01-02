@@ -1,5 +1,5 @@
 import { SidebarGroupLabel, SidebarMenuButton, SidebarMenuItem, SidebarGroup, SidebarMenu } from '@/components/shadcn';
-import { LayoutDashboard, Newspaper, Users, Warehouse } from 'lucide-react';
+import { LayoutDashboard, List, Newspaper, Users, Warehouse } from 'lucide-react';
 import type { IHasIcon, IHasName, IHasUrl } from '@/interfaces';
 import { Link } from 'react-router-dom';
 import { useLocation } from '@/hooks';
@@ -11,17 +11,22 @@ const CONSTS = {
     {
       name: 'Utilisateurs',
       url: ROUTES.users,
-      icon: Users,
+      icon: Users
     },
     {
       name: 'Annonces',
       url: ROUTES.annonces,
-      icon: Newspaper,
+      icon: Newspaper
     },
     {
       name: 'Garages',
       url: ROUTES.garages,
-      icon: Warehouse,
+      icon: Warehouse
+    },
+    {
+      name: 'Nomenclatures',
+      url: ROUTES.nomenclatures,
+      icon: List
     }
   ] as (IHasName & IHasUrl & IHasIcon)[]
 };
