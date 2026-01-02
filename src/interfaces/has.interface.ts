@@ -2,6 +2,22 @@ import type { LucideIcon } from 'lucide-react';
 import type { TSortType } from '@/types';
 import type { ReactNode } from 'react';
 
+export interface IHasOptPassword<T = string> {
+  password?: T;
+}
+
+export interface IHasPassword<T = string> {
+  password: T;
+}
+
+export interface IHasOptEmail<T = string> {
+  email?: T;
+}
+
+export interface IHasEmail<T = string> {
+  email: T;
+}
+
 export interface IHasOptOpen {
   open?: boolean;
 }
