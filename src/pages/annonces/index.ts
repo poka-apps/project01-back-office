@@ -1,1 +1,1 @@
-export * from './AnnoncesPage';
+export * from './LazyAnnoncesPage';

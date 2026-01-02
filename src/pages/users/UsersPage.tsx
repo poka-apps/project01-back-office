@@ -1,4 +1,4 @@
-export const UsersPage = () => {
+const UsersPage = () => {
 
   console.log('Page users');
 
@@ -9,3 +9,6 @@ export const UsersPage = () => {
   );
 
 };
+
+export default UsersPage;
+

@@ -1,4 +1,4 @@
-export const DashboardPage = () => {
+const DashboardPage = () => {
 
   console.log('Dashboard page');
 
@@ -14,3 +14,5 @@ export const DashboardPage = () => {
   );
 
 };
+
+export default DashboardPage;

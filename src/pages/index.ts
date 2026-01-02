@@ -1,5 +1,5 @@
 export * from './dashboard';
-export * from './NotFound';
+export * from './notFound';
 export * from './annonces';
 export * from './garages';
 export * from './login';

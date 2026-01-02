@@ -1,7 +1,7 @@
 import { GalleryVerticalEnd } from 'lucide-react';
 import { Form } from './components';
 
-export const LoginPage = () => {
+const LoginPage = () => {
 
   return (
     <div className='bg-muted flex min-h-svh flex-col items-center justify-center gap-6 p-6 md:p-10'>
@@ -18,3 +18,6 @@ export const LoginPage = () => {
   );
 
 };
+
+export default LoginPage;
+

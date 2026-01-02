@@ -1,4 +1,4 @@
-export const GaragesPage = () => {
+const GaragesPage = () => {
 
   console.log('Page garages');
 
@@ -9,3 +9,6 @@ export const GaragesPage = () => {
   );
 
 };
+
+export default GaragesPage;
+

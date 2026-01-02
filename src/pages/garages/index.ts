@@ -1,1 +1,1 @@
-export * from './GaragesPage';
+export * from './LazyGaragesPage';

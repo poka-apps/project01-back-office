@@ -1,6 +1,13 @@
-export const AnnoncesPage = () => {
+import { useEffect } from 'react';
 
-  console.log('Page annonces');
+const AnnoncesPage = () => {
+
+  useEffect(
+    () => {
+      console.log('Page annonces');
+    },
+    []
+  );
 
   return (
     <div className='flex flex-1 flex-col gap-4 p-4 pt-0'>
@@ -9,3 +16,5 @@ export const AnnoncesPage = () => {
   );
 
 };
+
+export default AnnoncesPage;

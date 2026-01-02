@@ -1,4 +1,4 @@
-import { AnnoncesPage, GaragesPage, DashboardPage, LoginPage, NotFoundPage, UsersPage } from '@/pages';
+import { LazyAnnoncesPage, LazyGaragesPage, LazyDashboardPage, LazyLoginPage, LazyNotFoundPage, LazyUsersPage } from '@/pages';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { AuthLayout, MainLayout } from '@/layouts';
 import { ROUTES } from '@/constants';
@@ -8,17 +8,17 @@ export const AppRoutes = () => (
     <Routes>
       {/* App with layout */}
       <Route element={<MainLayout />}>
-        <Route index element={<DashboardPage />} />
-        <Route path={ROUTES.annonces} element={<AnnoncesPage />} />
-        <Route path={ROUTES.garages} element={<GaragesPage />} />
-        <Route path={ROUTES.users} element={<UsersPage />} />
+        <Route index element={<LazyDashboardPage />} />
+        <Route path={ROUTES.annonces} element={<LazyAnnoncesPage />} />
+        <Route path={ROUTES.garages} element={<LazyGaragesPage />} />
+        <Route path={ROUTES.users} element={<LazyUsersPage />} />
       </Route>
       {/* Auth without layout principal */}
       <Route element={<AuthLayout />}>
-        <Route path={ROUTES.login} element={<LoginPage />} />
+        <Route path={ROUTES.login} element={<LazyLoginPage />} />
       </Route>
       {/* 404 */}
-      <Route path={ROUTES.notFound} element={<NotFoundPage />} />
+      <Route path={ROUTES.notFound} element={<LazyNotFoundPage />} />
     </Routes>
   </BrowserRouter>
 );
