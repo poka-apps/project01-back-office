@@ -11,7 +11,7 @@ export const AppSidebar = ({ ...props }: React.ComponentProps<typeof Sidebar>) =
     <SidebarHeader>
       <AppSidebarApplication />
     </SidebarHeader>
-    <SidebarContent>
+    <SidebarContent className='gap-0'>
       <AppSidebarModules />
     </SidebarContent>
     <SidebarFooter>

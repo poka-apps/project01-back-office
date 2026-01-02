@@ -3,6 +3,6 @@ export const ROUTES = {
   garages: '/garages',
   users: '/users',
   login: '/login',
+  dashboard: '/',
   notFound: '*',
-  home: '/',
 };

@@ -21,7 +21,7 @@ export const Form = () => {
   const navigate = useNavigate();
 
   const handleOnClick = () =>
-    navigate(ROUTES.home, { state: 12345 });
+    navigate(ROUTES.dashboard, { state: 12345 });
 
   return (
     <div className={cn('flex flex-col gap-6')}>
