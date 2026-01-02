@@ -1,4 +1,5 @@
 import { BadgeCheck, Bell, ChevronsUpDown, CreditCard, LogOut, Sparkles, } from 'lucide-react'
+import { AppSidebarUserBanner } from './AppSidebarUserBanner';
 import { useSidebar } from '@/hooks';
 import {
   DropdownMenuSeparator,
@@ -9,11 +10,8 @@ import {
   DropdownMenuLabel,
   DropdownMenuItem,
   SidebarMenuItem,
-  AvatarFallback,
   DropdownMenu,
   SidebarMenu,
-  AvatarImage,
-  Avatar
 } from '@/components/shadcn';
 
 const CONSTS = {
@@ -26,7 +24,7 @@ export const AppSidebarUser = () => {
 
   const { isMobile } = useSidebar();
 
-  const { name, email, avatar } = CONSTS;
+  const { name, email } = CONSTS;
 
   return (
     <SidebarMenu>
@@ -36,14 +34,7 @@ export const AppSidebarUser = () => {
             <SidebarMenuButton
               size='lg'
               className='data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground'>
-              <Avatar className='h-8 w-8 rounded-lg'>
-                <AvatarImage
-                  src={avatar}
-                  alt={name} />
-                <AvatarFallback className='rounded-lg'>
-                  CN
-                </AvatarFallback>
-              </Avatar>
+              <AppSidebarUserBanner />
               <div className='grid flex-1 text-left text-sm leading-tight'>
                 <span className='truncate font-medium'>
                   {name}
@@ -62,14 +53,7 @@ export const AppSidebarUser = () => {
             sideOffset={4}>
             <DropdownMenuLabel className='p-0 font-normal'>
               <div className='flex items-center gap-2 px-1 py-1.5 text-left text-sm'>
-                <Avatar className='h-8 w-8 rounded-lg'>
-                  <AvatarImage
-                    src={avatar}
-                    alt={name} />
-                  <AvatarFallback className='rounded-lg'>
-                    CN
-                  </AvatarFallback>
-                </Avatar>
+                <AppSidebarUserBanner />
                 <div className='grid flex-1 text-left text-sm leading-tight'>
                   <span className='truncate font-medium'>
                     {name}

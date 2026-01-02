@@ -3,7 +3,7 @@
 import { SidebarContent, SidebarFooter, SidebarHeader, SidebarRail, Sidebar } from '@/components/shadcn';
 import { AppSidebarApplication } from './AppSidebarApplication';
 import { AppSidebarModules } from './AppSidebarModules';
-import { AppSidebarUser } from './AppSidebarUser';
+import { AppSidebarUser } from './appSidebarUser';
 import * as React from 'react';
 
 export const AppSidebar = ({ ...props }: React.ComponentProps<typeof Sidebar>) => (
