@@ -1,6 +1,5 @@
-'use client';
-
-import { Folder, Forward, MoreHorizontal, Trash2, type LucideIcon, } from 'lucide-react';
+import { Folder, Forward, Frame, MoreHorizontal, PieChart, Trash2 } from 'lucide-react';
+import type { IHasIcon, IHasName, IHasUrl } from '@/interfaces';
 import { useSidebar } from '@/hooks';
 import {
   DropdownMenuSeparator,
@@ -16,15 +15,27 @@ import {
   SidebarMenu
 } from '@/components/shadcn';
 
-type TProps = {
-  projects: {
-    name: string
-    url: string
-    icon: LucideIcon
-  }[]
-};
+const data = {
+  projects: [
+    {
+      name: 'Design Engineering',
+      url: '#',
+      icon: Frame,
+    },
+    {
+      name: 'Sales & Marketing',
+      url: '#',
+      icon: PieChart,
+    },
+    {
+      name: 'Travel',
+      url: '#',
+      icon: Map,
+    },
+  ] as (IHasName & IHasUrl & IHasIcon)[]
+}
 
-export const AppSidebarProjects = ({ projects }: TProps) => {
+export const AppSidebarProjects = () => {
 
   const { isMobile } = useSidebar();
 
@@ -33,7 +44,8 @@ export const AppSidebarProjects = ({ projects }: TProps) => {
       <SidebarGroupLabel>Projects</SidebarGroupLabel>
       <SidebarMenu>
         {
-          projects
+          data
+            .projects
             .map(
               item => (
                 <SidebarMenuItem key={item.name}>

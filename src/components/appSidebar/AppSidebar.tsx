@@ -2,7 +2,7 @@
 
 import { SidebarContent, SidebarFooter, SidebarHeader, SidebarRail, Sidebar } from '@/components/shadcn';
 import { AppSidebarTeamSwitcher } from './AppSidebarTeamSwitcher';
-import { AppSidebarProjects } from './AppSidebarProjects';
+import { AppSidebarModules } from './AppSidebarModules';
 import { AppSidebarUser } from './AppSidebarUser';
 import { AppSidebarMain } from './AppSidebarMain';
 import * as React from 'react';
@@ -11,11 +11,8 @@ import {
   SquareTerminal,
   AudioWaveform,
   Settings2,
-  PieChart,
   BookOpen,
   Command,
-  Frame,
-  Map,
   Bot,
 } from 'lucide-react';
 
@@ -129,24 +126,7 @@ const data = {
         },
       ],
     },
-  ],
-  projects: [
-    {
-      name: 'Design Engineering',
-      url: '#',
-      icon: Frame,
-    },
-    {
-      name: 'Sales & Marketing',
-      url: '#',
-      icon: PieChart,
-    },
-    {
-      name: 'Travel',
-      url: '#',
-      icon: Map,
-    },
-  ],
+  ]
 }
 
 export const AppSidebar = ({ ...props }: React.ComponentProps<typeof Sidebar>) => (
@@ -155,8 +135,8 @@ export const AppSidebar = ({ ...props }: React.ComponentProps<typeof Sidebar>) =
       <AppSidebarTeamSwitcher teams={data.teams} />
     </SidebarHeader>
     <SidebarContent>
+      <AppSidebarModules />
       <AppSidebarMain items={data.navMain} />
-      <AppSidebarProjects projects={data.projects} />
     </SidebarContent>
     <SidebarFooter>
       <AppSidebarUser user={data.user} />
