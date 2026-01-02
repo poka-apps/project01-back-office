@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react';
-import { Loader } from 'lucide-react';
+import { Loader } from '@/components';
 
 const UsersPage = lazy(() => import('./UsersPage'));
 

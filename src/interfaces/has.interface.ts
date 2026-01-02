@@ -39,3 +39,11 @@ export interface IHasOptIcon<T = LucideIcon> {
 export interface IHasIcon<T = LucideIcon> {
   icon: T;
 }
+
+export interface IHasOptClassName<T = string> {
+  className?: T;
+}
+
+export interface IHasClassName<T = string> {
+  className: T;
+}
