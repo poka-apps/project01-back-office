@@ -1,11 +1,11 @@
-const CONSTS = {
-  avatar: '/avatars/shadcn.jpg',
-  email: 'm@example.com',
-  name: 'shadcn'
-};
-
 export const useUserConnected = () => {
 
-  return CONSTS;
+  const userConnected = ({
+    email: 'ulrich.poka.apps@gmail.com',
+    avatar: '/avatars/shadcn.jpg',
+    name: 'Ulrich POKA',
+  });
+
+  return userConnected;
   
 };
