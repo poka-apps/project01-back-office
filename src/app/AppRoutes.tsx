@@ -1,4 +1,4 @@
-import { AnnoncesPage, HomePage, LoginPage, NotFoundPage, Page1, Page2, UsersPage } from '@/pages';
+import { AnnoncesPage, GaragesPage, HomePage, LoginPage, NotFoundPage, UsersPage } from '@/pages';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { AuthLayout, MainLayout } from '@/layouts';
 import { ROUTES } from '@/constants';
@@ -10,9 +10,8 @@ export const AppRoutes = () => (
       <Route element={<MainLayout />}>
         <Route index element={<HomePage />} />
         <Route path={ROUTES.annonces} element={<AnnoncesPage />} />
+        <Route path={ROUTES.garages} element={<GaragesPage />} />
         <Route path={ROUTES.users} element={<UsersPage />} />
-        <Route path={ROUTES.page1} element={<Page1 />} />
-        <Route path={ROUTES.page2} element={<Page2 />} />
       </Route>
       {/* Auth without layout principal */}
       <Route element={<AuthLayout />}>
