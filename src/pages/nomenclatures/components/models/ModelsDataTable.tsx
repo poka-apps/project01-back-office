@@ -1,18 +1,11 @@
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/shadcn';
-import type { IBrand } from '@/interfaces';
+import { useQueryGetBrandModels } from '@/hooks/queries';
+import { useParams } from '../../hooks';
 
 export const ModelsDataTable = () => {
 
-  const data = [
-    {
-      id: '1',
-      title: 'Element 1'
-    },
-    {
-      id: '2',
-      title: 'Element 2'
-    }
-  ] as IBrand[];
+  const { itemType, itemTypeTitle, brandId } = useParams();
+  const { models } = useQueryGetBrandModels({ itemType, brandId: brandId! });
 
   return (
     <div className='overflow-hidden rounded-md border'>
@@ -20,30 +13,24 @@ export const ModelsDataTable = () => {
         <TableHeader>
           <TableRow>
             <TableHead className='w-[1%] whitespace-nowrap'>
-              Id
+              Type
             </TableHead>
             <TableHead className='px-10'>
               Intitulé
-            </TableHead>
-            <TableHead>
-              Crée le
             </TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
           {
-            data
+            models
               .map(
                 l => (
-                  <TableRow key={l.id}>
+                  <TableRow key={l}>
                     <TableCell className='w-[1%] whitespace-nowrap'>
-                      {l.id}
+                      {itemTypeTitle}
                     </TableCell>
                     <TableCell className='px-10'>
-                      {l.title}
-                    </TableCell>
-                    <TableCell>
-                      {l.createdAt?.toString()}
+                      {l}
                     </TableCell>
                   </TableRow>
                 )

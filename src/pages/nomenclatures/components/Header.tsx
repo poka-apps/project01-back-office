@@ -8,7 +8,7 @@ import { useParams } from '../hooks';
 export const Header = () => {
 
   const { nomenclatures } = useQueryGetNomenclatures<TItemType>({ type: 'itemTypes' });
-  const { itemType, tab, setItemType, setTab } = useParams();
+  const { itemType, itemTypeTitle, tab, setItemType, setTab } = useParams();
 
   const handleOnValueChange = (newTab: string) =>
     setTab(newTab as TTabname);
@@ -23,7 +23,7 @@ export const Header = () => {
           text='Type'
           notCloseable />
       </div>
-      <Separator className='opacity-60'/>
+      <Separator className='opacity-60' />
       <Tabs
         value={tab}
         onValueChange={handleOnValueChange}>
@@ -34,9 +34,14 @@ export const Header = () => {
             Marques
           </TabsTrigger>
           <TabsTrigger
-            className='cursor-pointer'
+            className='flex space-x-1 cursor-pointer'
             value={('models' as TTabname)}>
-            Modèles
+            <span>
+              Modèles:
+            </span>
+            <span className='text-red-800 font-semibold'>
+              {itemTypeTitle}
+            </span>
           </TabsTrigger>
         </TabsList>
       </Tabs>
