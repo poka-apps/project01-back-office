@@ -1,7 +1,7 @@
-import { Table, TableBody, TableCell, TableRow } from '@/components/shadcn';
 import { BrandsDataTableHeader } from './BrandsDataTableHeader';
 import { BrandsDataTableBody } from './BrandsDataTableBody';
 import { useQueryGetBrands } from '@/hooks/queries';
+import { Table } from '@/components/shadcn';
 
 export const BrandsDataTable = () => {
 
