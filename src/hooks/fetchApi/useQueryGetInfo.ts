@@ -15,7 +15,7 @@ type TResponse = {
   date: Date;
 };
 
-export const useGetInfo = () => {
+export const useQueryGetInfo = () => {
 
   const { isLoading, error, mutate, ...props } = useSWR<TResponse>('/info');
 

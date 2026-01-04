@@ -1,1 +1,1 @@
-export * from './useGetInfo';
+export * from './useQueryGetInfo';
