@@ -1,5 +1,5 @@
+import type { IHasOpen, IHasOptValue, IHasText, IHasValue, ISelectOption } from '@/interfaces';
 import { useEffect, useState, type ReactNode } from 'react';
-import type { ISelectOption } from '@/interfaces';
 import { CircleX } from 'lucide-react';
 import { cn } from '@/functions';
 import {
@@ -14,27 +14,22 @@ import {
   Button
 } from '@/components/shadcn';
 
-interface IState {
-  value: ISelectOption[];
-  open: boolean;
-}
+type TState = IHasValue<ISelectOption[]> & IHasOpen;
 
-type TProps = {
+type TProps = IHasOptValue<string[]> & IHasText & {
   renderText?: (text: string, selectedOptions: ISelectOption[]) => ReactNode;
   onChange: (value: ISelectOption[]) => void;
   getValue?: (value: ISelectOption) => any;
   options: ISelectOption[];
   onReset?: () => void;
   disabled?: boolean;
-  value?: string[];
-  text: string;
 };
 
 const VARIABLES = {
   initState: {
     value: [],
     open: false
-  } as IState
+  } as TState
 };
 
 export const ButtonFilterOptions = ({ text, options, value, disabled, renderText, onChange, onReset, getValue }: TProps) => {
@@ -42,16 +37,11 @@ export const ButtonFilterOptions = ({ text, options, value, disabled, renderText
   const initState = ({
     ...VARIABLES.initState,
     value: options.filter(l => value?.includes(l.value as any))
-  }) as IState;
+  }) as TState;
 
-  const [state, setState] = useState<IState>(initState);
+  const [state, setState] = useState<TState>(initState);
 
-  useEffect(
-    () => {
-      setState(_ => initState);
-    },
-    [value]
-  );
+  useEffect(() => setState(_ => initState), [value]);
 
   const hasValue = state.value.length !== 0;
 
@@ -69,9 +59,8 @@ export const ButtonFilterOptions = ({ text, options, value, disabled, renderText
     setState(l => ({ ...l, value }));
   };
 
-  const handleOnClickButton = () => {
+  const handleOnClickButton = () =>
     setState(l => ({ ...l, open: !l.open }));
-  };
 
   const handleOnClickButtonApply = () => {
     setState(l => ({ ...l, open: false }));

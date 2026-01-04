@@ -218,3 +218,11 @@ export interface IHasOptType<T = string> {
 export interface IHasType<T = string> {
   type: T;
 }
+
+export interface IHasOptText<T = string> {
+  text?: T;
+}
+
+export interface IHasText<T = string> {
+  text: T;
+}
