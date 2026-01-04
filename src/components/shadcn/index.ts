@@ -1,6 +1,7 @@
 export * from './dropdown-menu';
 export * from './native-select';
 export * from './collapsible';
+export * from './scroll-area';
 export * from './breadcrumb';
 export * from './separator';
 export * from './skeleton';
