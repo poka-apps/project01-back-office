@@ -177,3 +177,11 @@ export interface IHasOptUpdatedAt<T = Date> {
 export interface IHasUpdatedAt<T = Date> {
   updatedAt: T;
 }
+
+export interface IHasOptDate<T = Date> {
+  date?: T;
+}
+
+export interface IHasDate<T = Date> {
+  date: T;
+}
