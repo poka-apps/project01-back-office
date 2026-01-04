@@ -24,7 +24,7 @@ export const BrandsDataTableBody = ({ brands }: IHasOptBrands) => {
               return (
                 <TableRow key={l.id}>
                   <TableCell className='w-[1%] whitespace-nowrap opacity-50'>
-                    <Link to={url} >
+                    <Link to={url}>
                       {`...${l.id.slice(20)}`}
                     </Link>
                   </TableCell>

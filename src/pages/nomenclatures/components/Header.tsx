@@ -1,5 +1,5 @@
 import { Separator, Tabs, TabsList, TabsTrigger } from '@/components/shadcn';
-import { useQueryGetNomenclatures } from '@/hooks/queries';
+import { useQueryGetBrand, useQueryGetNomenclatures } from '@/hooks/queries';
 import { ButtonFilterRadioGroup } from '@/components';
 import type { TTabname } from '../types';
 import type { TItemType } from '@/types';
@@ -8,7 +8,8 @@ import { useParams } from '../hooks';
 export const Header = () => {
 
   const { nomenclatures } = useQueryGetNomenclatures<TItemType>({ type: 'itemTypes' });
-  const { itemType, itemTypeTitle, tab, setItemType, setTab } = useParams();
+  const { itemType, tab, brandId, setItemType, setTab } = useParams();
+  const { brand } = useQueryGetBrand({ itemType, brandId: brandId! });
 
   const handleOnValueChange = (newTab: string) =>
     setTab(newTab as TTabname);
@@ -37,10 +38,14 @@ export const Header = () => {
             className='flex space-x-1 cursor-pointer'
             value={('models' as TTabname)}>
             <span>
-              Modèles:
+              Modèles
             </span>
-            <span className='text-red-800 font-semibold'>
-              {itemTypeTitle}
+            {
+              brand?.title &&
+              <span>:</span>
+            }
+            <span className='text-red-800 font-semibold ml-1'>
+              {brand?.title}
             </span>
           </TabsTrigger>
         </TabsList>
