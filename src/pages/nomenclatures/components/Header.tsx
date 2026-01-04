@@ -36,7 +36,8 @@ export const Header = () => {
           </TabsTrigger>
           <TabsTrigger
             className='flex space-x-1 cursor-pointer'
-            value={('models' as TTabname)}>
+            value={('models' as TTabname)}
+            disabled={!brandId}>
             <span>
               Modèles
             </span>
