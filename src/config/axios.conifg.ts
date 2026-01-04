@@ -24,3 +24,19 @@ axios
     },
     error => Promise.reject(error)
   );
+
+axios
+  .interceptors
+  .response
+  .use(
+    response => response.data,
+    error => {
+      if (error.response?.status === 401) {
+        // appeler endpoint refresh
+        // mettre à jour le token
+        // relancer la requête originale
+      }
+
+      return Promise.reject(error)
+    }
+  );
