@@ -1,4 +1,4 @@
-import { Tabs, TabsList, TabsTrigger } from '@/components/shadcn';
+import { Separator, Tabs, TabsList, TabsTrigger } from '@/components/shadcn';
 import { useQueryGetNomenclatures } from '@/hooks/queries';
 import { ButtonFilterRadioGroup } from '@/components';
 import type { TTabname } from '../types';
@@ -20,8 +20,10 @@ export const Header = () => {
           options={nomenclatures.map(l => ({ title: l.title, value: l.id }))}
           onChange={option => option?.value && setItemType(option.value)}
           value={itemType}
-          text='Type' />
+          text='Type'
+          notCloseable />
       </div>
+      <Separator className='opacity-60'/>
       <Tabs
         value={tab}
         onValueChange={handleOnValueChange}>

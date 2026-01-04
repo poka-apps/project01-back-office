@@ -1,7 +1,7 @@
 import type { IHasOpen, IHasOptValue, ISelectOption } from '@/interfaces';
+import { useEffect, useState } from 'react';
 import type { TNullable } from '@/types';
 import { CircleX } from 'lucide-react';
-import { useState } from 'react';
 import {
   DropdownMenuRadioGroup,
   DropdownMenuSeparator,
@@ -21,16 +21,19 @@ type TProps<TValue = string> = IHasOptValue<TNullable<TValue>> & {
   onChange: (value?: ISelectOption<any, TValue>) => void;
   options: ISelectOption<any, TValue>[];
   onReset?: () => void;
+  notCloseable?: boolean;
   disabled?: boolean;
   text: string;
 };
 
-export const ButtonFilterRadioGroup = <TValue = string>({ text, options, value, disabled, onChange, onReset }: TProps<TValue>) => {
+export const ButtonFilterRadioGroup = <TValue = string>({ text, options, value, disabled, notCloseable, onChange, onReset }: TProps<TValue>) => {
 
-  const [state, setState] = useState<TState<TValue>>({
-    ...{ open: false },
-    value: options.find(l => l.value === value)
-  });
+  const [state, setState] = useState<TState<TValue>>({ open: false });
+
+  useEffect(
+    () => setState({ ...{ open: false }, value: options.find(l => l.value === value) }),
+    [value, options]
+  );
 
   const hasValue = !!state.value;
 
@@ -64,7 +67,7 @@ export const ButtonFilterRadioGroup = <TValue = string>({ text, options, value, 
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button
-            className={`border border-dashed text-xs items-center cursor-pointer ${hasValue && 'border-r-0 rounded-r-none'}`}
+            className={`border border-dashed text-xs items-center cursor-pointer ${!notCloseable && hasValue && 'border-r-0 rounded-r-none'}`}
             variant={hasValue ? 'secondary' : 'ghost'}
             onClick={handleOnClickButton}
             disabled={disabled}
@@ -120,6 +123,7 @@ export const ButtonFilterRadioGroup = <TValue = string>({ text, options, value, 
         </DropdownMenuContent>
       </DropdownMenu>
       {
+        !notCloseable &&
         hasValue &&
         <Button
           className='space-x-1 border border-dashed border-l-0 rounded-l-none text-xs'

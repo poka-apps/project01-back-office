@@ -14,8 +14,8 @@ export const BrandsDataTableBody = ({ brands }: IHasOptBrands) => {
           .map(
             l => (
               <TableRow key={l.id}>
-                <TableCell className='w-[1%] whitespace-nowrap'>
-                  {l.id}
+                <TableCell className='w-[1%] whitespace-nowrap opacity-50'>
+                  {`...${l.id.slice(20)}`}
                 </TableCell>
                 <TableCell className='px-10'>
                   {l.title}
