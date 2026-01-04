@@ -1,6 +1,6 @@
 import { Tabs, TabsList, TabsTrigger } from '@/components/shadcn';
 import { useQueryGetNomenclatures } from '@/hooks/queries';
-import { ButtonFilterOptions } from '@/components';
+import { ButtonFilterRadioGroup } from '@/components';
 import type { TTabname } from '../types';
 import { useTabs } from '../hooks';
 
@@ -15,7 +15,7 @@ export const Header = () => {
   return (
     <div className='flex flex-col gap-2'>
       <div>
-        <ButtonFilterOptions
+        <ButtonFilterRadioGroup
           options={nomenclatures.map(l => ({ title: l.title, value: l.id }))}
           onChange={options => { }}          
           text='Type' />

@@ -3,7 +3,10 @@ import axiosRoot from 'axios';
 
 export const axios = axiosRoot.create({
   baseURL: ENV.baseApi,
-  headers: { 'Content-Type': 'application/json' }
+  headers: {
+    'Content-Type': 'application/json',
+    'Accept-Language': 'fr'
+  }
 });
 
 axios

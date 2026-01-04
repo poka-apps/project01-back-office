@@ -1,4 +1,4 @@
-import type { ISelectOption } from '@/interfaces';
+import type { IHasOpen, IHasOptValue, ISelectOption } from '@/interfaces';
 import type { TNullable } from '@/types';
 import { CircleX } from 'lucide-react';
 import { useState } from 'react';
@@ -11,17 +11,14 @@ import {
   DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenu,
+  ScrollArea,
   Button
 } from '@/components/shadcn';
 
-interface IState {
-  value?: ISelectOption;
-  open: boolean;
-}
+type TState = IHasOptValue<ISelectOption> & IHasOpen;
 
-type TProps = {
+type TProps = IHasOptValue<TNullable<string>> & {
   onChange: (value?: ISelectOption) => void;
-  value?: TNullable<string>;
   options: ISelectOption[];
   onReset?: () => void;
   disabled?: boolean;
@@ -31,32 +28,28 @@ type TProps = {
 const VARIABLES = {
   initState: {
     open: false
-  } as IState
+  } as TState
 };
 
 export const ButtonFilterRadioGroup = ({ text, options, value, disabled, onChange, onReset }: TProps) => {
 
-  const [state, setState] = useState<IState>({
+  const [state, setState] = useState<TState>({
     ...VARIABLES.initState,
     value: options.find(l => l.value === value)
   });
 
   const hasValue = !!state.value;
 
-  const handleOnClickButton = () => {
+  const handleOnClickButton = () =>
     setState(l => ({ ...l, open: !l.open }));
-  };
 
   const handleOnClickButtonApply = () => {
     setState(l => ({ ...l, open: false }));
-
     onChange(state.value);
   };
 
   const handleOnValueChange = (optionValue: string) => {
     const value = options.find(l => l.value === optionValue);
-    console.log({ optionValue, value });
-
     setState(l => ({ ...l, value }));
   };
 
@@ -87,8 +80,12 @@ export const ButtonFilterRadioGroup = ({ text, options, value, disabled, onChang
             </span>
             {
               hasValue &&
-              <span className='text-purple-600 font-semibold'>
-                : {state.value!.title}
+              <span>:</span>
+            }
+            {
+              hasValue &&
+              <span className='text-red-800 font-semibold'>
+                {state.value!.title}
               </span>
             }
           </Button>
@@ -97,21 +94,24 @@ export const ButtonFilterRadioGroup = ({ text, options, value, disabled, onChang
           <DropdownMenuGroup>
             <DropdownMenuRadioGroup
               value={state.value?.value as any}
+              className='max-h-80 flex flex-col'
               onValueChange={handleOnValueChange}>
-              {
-                options
-                  .map(
-                    item => (
-                      <DropdownMenuRadioItem
-                        key={item.value as any}
-                        value={item.value as any}
-                        onSelect={handleOnClickMenuItem}
-                        className='cursor-pointer'>
-                        {item.title}
-                      </DropdownMenuRadioItem>
+              <ScrollArea className='flex-1 overflow-auto'>
+                {
+                  options
+                    .map(
+                      item => (
+                        <DropdownMenuRadioItem
+                          key={item.value as any}
+                          value={item.value as any}
+                          onSelect={handleOnClickMenuItem}
+                          className='cursor-pointer'>
+                          {item.title}
+                        </DropdownMenuRadioItem>
+                      )
                     )
-                  )
-              }
+                }
+              </ScrollArea>
             </DropdownMenuRadioGroup>
             <DropdownMenuSeparator />
             <DropdownMenuItem className='p-0'>

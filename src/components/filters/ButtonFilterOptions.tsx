@@ -1,6 +1,7 @@
 import { useEffect, useState, type ReactNode } from 'react';
 import type { ISelectOption } from '@/interfaces';
 import { CircleX } from 'lucide-react';
+import { cn } from '@/functions';
 import {
   DropdownMenuSeparator,
   DropdownMenuContent,
@@ -98,7 +99,10 @@ export const ButtonFilterOptions = ({ text, options, value, disabled, renderText
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button
-            className={`space-x-1 border border-dashed text-xs items-center ${hasValue && 'border-r-0 rounded-r-none'}`}
+            className={cn(
+              'space-x-1 border border-dashed text-xs items-center',
+              hasValue && 'border-r-0 rounded-r-none'
+            )}
             variant={hasValue ? 'secondary' : 'ghost'}
             onClick={handleOnClickButton}
             disabled={disabled}
@@ -111,7 +115,7 @@ export const ButtonFilterOptions = ({ text, options, value, disabled, renderText
                   </span>
                   {
                     state.value.length !== 0 &&
-                    <span className='text-purple-600 font-semibold'>
+                    <span className='text-red-800 font-semibold'>
                       ({state.value.length})
                     </span>
                   }
