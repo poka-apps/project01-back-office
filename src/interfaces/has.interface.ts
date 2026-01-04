@@ -193,3 +193,11 @@ export interface IHasOptItemType<T = TItemType> {
 export interface IHasItemType<T = TItemType> {
   itemType: T;
 }
+
+export interface IHasOptBrandId<T = string> {
+  brandId?: T;
+}
+
+export interface IHasBrandId<T = string> {
+  brandId: T;
+}
