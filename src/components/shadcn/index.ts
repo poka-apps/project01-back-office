@@ -1,4 +1,5 @@
 export * from './dropdown-menu';
+export * from './native-select';
 export * from './collapsible';
 export * from './breadcrumb';
 export * from './separator';
