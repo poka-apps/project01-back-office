@@ -1,23 +1,7 @@
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/shadcn';
-import { type ColumnDef } from '@tanstack/react-table';
 import type { IBrand } from '@/interfaces';
-import { DataTable } from '@/components';
-import { nameof } from '@/functions';
 
-export const columns: ColumnDef<IBrand>[] = [
-  {
-    accessorKey: nameof<IBrand>('id'),
-    cell: ({ row }) => row.getValue("id"),
-    header: 'Id',
-    minSize: 1
-  },
-  {
-    accessorKey: nameof<IBrand>('title'),
-    header: 'Intitulé'
-  }
-];
-
-export const BrandsDataTable = () => {
+export const ModelsDataTable = () => {
 
   const data = [
     {
@@ -67,14 +51,6 @@ export const BrandsDataTable = () => {
           }
         </TableBody>
       </Table>
-    </div>
-  );
-
-  return (
-    <div>
-      <DataTable
-        columns={columns}
-        data={data} />
     </div>
   );
 

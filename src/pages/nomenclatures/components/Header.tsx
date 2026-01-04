@@ -21,7 +21,7 @@ export const Header = () => {
         </TabsTrigger>
         <TabsTrigger
           className='cursor-pointer'
-          value={('modeles' as TTabname)}>
+          value={('models' as TTabname)}>
           Modèles
         </TabsTrigger>
       </TabsList>

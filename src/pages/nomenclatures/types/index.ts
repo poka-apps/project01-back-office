@@ -1,1 +1,1 @@
-export type TTabname = 'brands' | 'modeles';
+export type TTabname = 'brands' | 'models';

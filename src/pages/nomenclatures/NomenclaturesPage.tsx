@@ -1,4 +1,4 @@
-import { Brands, Header, Models } from './components';
+import { Models, Header, Brands } from './components';
 import { useTabs } from './hooks';
 
 const NomenclaturesPage = () => {
@@ -8,7 +8,7 @@ const NomenclaturesPage = () => {
   return (
     <div className='flex flex-1 flex-col space-y-3 p-4 pt-0'>
       <Header />
-      {tab === 'modeles' && <Models />}
+      {tab === 'models' && <Models />}
       {tab === 'brands' && <Brands />}
     </div>
   );
