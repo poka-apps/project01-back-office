@@ -9,7 +9,8 @@ export const AppRoutes = () => (
       {/* App with layout */}
       <Route element={<MainLayout />}>
         <Route index element={<LazyDashboardPage />} />
-        <Route path={ROUTES.nomenclatures} element={<LazyNomenclaturesPage />} />
+        <Route path={ROUTES.nomenclatures.brands} element={<LazyNomenclaturesPage />} />
+        <Route path={ROUTES.nomenclatures.equipments} element={<></>} />
         <Route path={ROUTES.annonces} element={<LazyAnnoncesPage />} />
         <Route path={ROUTES.garages} element={<LazyGaragesPage />} />
         <Route path={ROUTES.users} element={<LazyUsersPage />} />

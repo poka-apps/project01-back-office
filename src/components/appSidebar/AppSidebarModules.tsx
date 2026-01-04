@@ -25,7 +25,7 @@ const CONSTS = {
     },
     {
       name: 'Nomenclatures',
-      url: ROUTES.nomenclatures,
+      url: ROUTES.nomenclatures.equipments,
       icon: List
     }
   ] as (IHasName & IHasUrl & IHasIcon)[]

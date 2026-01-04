@@ -1,5 +1,8 @@
 export const ROUTES = {
-  nomenclatures: '/nomenclatures',
+  nomenclatures: {
+    equipments: '/nomenclatures/equipments',
+    brands: '/nomenclatures/brands'
+  },
   annonces: '/annonces',
   garages: '/garages',
   users: '/users',
