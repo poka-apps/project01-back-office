@@ -5,13 +5,13 @@ import { Table } from '@/components/shadcn';
 
 export const BrandsDataTable = () => {
 
-  const { data } = useQueryGetBrands({ itemType: 'car' });
+  const { brands } = useQueryGetBrands({ itemType: 'car' });
 
   return (
     <div className='overflow-hidden rounded-md border'>
       <Table>
         <BrandsDataTableHeader />
-        <BrandsDataTableBody brands={data} />
+        <BrandsDataTableBody brands={brands} />
       </Table>
     </div>
   );
