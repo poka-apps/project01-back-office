@@ -210,3 +210,11 @@ export interface IHasOptBrands<T = IBrand> {
 export interface IHasBrands<T = IBrand> {
   brands: T[];
 }
+
+export interface IHasOptType<T = string> {
+  type?: T;
+}
+
+export interface IHasType<T = string> {
+  type: T;
+}
