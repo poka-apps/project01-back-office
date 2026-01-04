@@ -1,7 +1,7 @@
 import { Models, Header, Brands } from './components';
 import { useParams } from './hooks';
 
-const NomenclaturesPage = () => {
+const BrandsPage = () => {
 
   const { tab } = useParams();
 
@@ -15,4 +15,4 @@ const NomenclaturesPage = () => {
 
 };
 
-export default NomenclaturesPage;
+export default BrandsPage;

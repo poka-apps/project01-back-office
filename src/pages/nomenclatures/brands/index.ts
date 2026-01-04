@@ -1,1 +1,1 @@
-export * from './LazyNomenclaturesPage';
+export * from './LazyBrandsPage';
