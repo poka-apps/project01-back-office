@@ -1,5 +1,6 @@
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/shadcn';
 import { useQueryGetBrands } from '@/hooks/queries';
+import { chunkArray } from '@/functions';
 
 export const BrandsDataTable = () => {
 
@@ -24,7 +25,7 @@ export const BrandsDataTable = () => {
         </TableHeader>
         <TableBody>
           {
-            data
+            chunkArray(data, 10)[0]
               .map(
                 l => (
                   <TableRow key={l.id}>
