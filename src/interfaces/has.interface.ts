@@ -1,6 +1,7 @@
 import type { TItemType, TSortType } from '@/types';
 import type { LucideIcon } from 'lucide-react';
 import type { ReactNode } from 'react';
+import type { IBrand } from './models.interface';
 
 export interface IHasOptPassword<T = string> {
   password?: T;
@@ -200,4 +201,12 @@ export interface IHasOptBrandId<T = string> {
 
 export interface IHasBrandId<T = string> {
   brandId: T;
+}
+
+export interface IHasOptBrands<T = IBrand> {
+  brands?: T[];
+}
+
+export interface IHasBrands<T = IBrand> {
+  brands: T[];
 }

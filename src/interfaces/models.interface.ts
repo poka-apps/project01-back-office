@@ -1,4 +1,4 @@
-import type { IHasCreatedAt, IHasId, IHasOptUpdatedAt, IHasTitle } from './has.interface';
+import type { IHasId, IHasTitle } from './has.interface';
 
-export interface IBrand extends IHasCreatedAt, IHasOptUpdatedAt, IHasTitle, IHasId {
+export interface IBrand extends IHasTitle, IHasId {
 }

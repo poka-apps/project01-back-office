@@ -1,7 +1,7 @@
-import type { IHasId, IHasItemType, IHasTitle } from '@/interfaces';
+import type { IBrand, IHasItemType } from '@/interfaces';
 import useSWR from 'swr';
 
-type TResponse = (IHasId & IHasTitle)[];
+type TResponse = IBrand[];
 
 export const useQueryGetBrands = (params: IHasItemType) => {
 
