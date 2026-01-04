@@ -10,10 +10,10 @@ export const useQueryGetBrandModels = ({ brandId, ...params }: IHasItemType & IH
   const refresh = () => mutate();
 
   return ({
+    models: data ?? [],
     isLoading,
     refresh,
-    error,
-    data
+    error
   });
 
 };

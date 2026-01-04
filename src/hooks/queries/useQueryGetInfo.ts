@@ -17,16 +17,16 @@ type TResponse = {
 
 export const useQueryGetInfo = () => {
 
-  const { isLoading, error, mutate, ...props } = useSWR<TResponse>('/info');
+  const { isLoading, error, mutate, data } = useSWR<TResponse>('/info');
 
-  let data = props.data;
+  let info = data;
 
-  if (data?.database?.lastMigration?.appliedAt) {
-    data.database.lastMigration.appliedAt = dayjs(data.database.lastMigration.appliedAt).toDate();
+  if (info?.database?.lastMigration?.appliedAt) {
+    info.database.lastMigration.appliedAt = dayjs(info.database.lastMigration.appliedAt).toDate();
   }
 
-  if (data?.date) {
-    data.date = dayjs(data.date).toDate();
+  if (info?.date) {
+    info.date = dayjs(info.date).toDate();
   }
 
   const refresh = () => mutate();
@@ -35,7 +35,7 @@ export const useQueryGetInfo = () => {
     isLoading,
     refresh,
     error,
-    data
+    info
   });
 
 };

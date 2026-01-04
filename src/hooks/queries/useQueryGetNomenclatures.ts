@@ -11,10 +11,10 @@ export const useQueryGetNomenclatures = (params: IHasType<TNomenclatureType>) =>
   const refresh = () => mutate();
 
   return ({
+    nomenclatures: data ?? [],
     isLoading,
     refresh,
-    error,
-    data
+    error
   });
 
 };

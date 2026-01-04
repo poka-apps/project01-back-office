@@ -10,10 +10,10 @@ export const useQueryGetBrands = (params: IHasItemType) => {
   const refresh = () => mutate();
 
   return ({
+    brands: data ?? [],
     isLoading,
     refresh,
-    error,
-    data
+    error
   });
 
 };
