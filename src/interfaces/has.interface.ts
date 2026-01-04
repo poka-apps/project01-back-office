@@ -226,3 +226,11 @@ export interface IHasOptText<T = string> {
 export interface IHasText<T = string> {
   text: T;
 }
+
+export interface IHasOptItems<T = any> {
+  items?: T[];
+}
+
+export interface IHasItems<T = any> {
+  items: T[];
+}

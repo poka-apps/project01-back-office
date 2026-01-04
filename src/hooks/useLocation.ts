@@ -6,8 +6,10 @@ export const useLocation = () => {
 
   const pathname = loc.pathname.toLowerCase();
 
-  const isRoute = (route: string) =>
-    pathname === route?.toLowerCase();
+  const isRoute = (...routes: string[]) =>
+    routes
+      ?.map(l => l.toLowerCase())
+      .includes(pathname);
 
   return ({
     pathname,

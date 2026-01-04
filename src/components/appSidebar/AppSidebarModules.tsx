@@ -1,6 +1,6 @@
-import { SidebarGroupLabel, SidebarMenuButton, SidebarMenuItem, SidebarGroup, SidebarMenu } from '@/components/shadcn';
-import { LayoutDashboard, List, Newspaper, Users, Warehouse } from 'lucide-react';
-import type { IHasIcon, IHasName, IHasUrl } from '@/interfaces';
+import { SidebarGroupLabel, SidebarMenuButton, SidebarMenuItem, SidebarGroup, SidebarMenu, Collapsible, CollapsibleTrigger, CollapsibleContent, SidebarMenuSub, SidebarMenuSubItem, SidebarMenuSubButton } from '@/components/shadcn';
+import { Boxes, ChevronRight, LayoutDashboard, List, Newspaper, Users, Warehouse } from 'lucide-react';
+import type { IHasIcon, IHasOptItems, IHasName, IHasUrl } from '@/interfaces';
 import { Link } from 'react-router-dom';
 import { useLocation } from '@/hooks';
 import { ROUTES } from '@/constants';
@@ -26,9 +26,21 @@ const CONSTS = {
     {
       name: 'Nomenclatures',
       url: ROUTES.nomenclatures.equipments,
-      icon: List
+      icon: List,
+      items: [
+        {
+          name: 'Marques',
+          url: ROUTES.nomenclatures.brands,
+          icon: Warehouse
+        },
+        {
+          name: 'Équipements',
+          url: ROUTES.nomenclatures.equipments,
+          icon: Boxes
+        }
+      ]
     }
-  ] as (IHasName & IHasUrl & IHasIcon)[]
+  ] as (IHasName & IHasUrl & IHasIcon & IHasOptItems<IHasName & IHasUrl & IHasIcon>)[]
 };
 
 export const AppSidebarModules = () => {
@@ -71,25 +83,81 @@ export const AppSidebarModules = () => {
             CONSTS
               .menus
               .map(
-                item => (
-                  <SidebarMenuItem key={item.name}>
-                    <SidebarMenuButton
-                      tooltip={item.name}
-                      asChild>
-                      <Link
-                        className={cn(isRoute(item.url) && 'font-semibold')}
-                        to={item.url}>
-                        <item.icon className={cn(
-                          'opacity-60',
-                          'group-data-[collapsible=icon]:opacity-100'
-                        )} />
-                        <span>
-                          {item.name}
-                        </span>
-                      </Link>
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
-                )
+                item => {
+
+                  if (!item.items) {
+                    return (
+                      <SidebarMenuItem key={item.name}>
+                        <SidebarMenuButton
+                          tooltip={item.name}
+                          asChild>
+                          <Link
+                            className={cn(isRoute(item.url) && 'font-semibold')}
+                            to={item.url}>
+                            <item.icon className={cn(
+                              'opacity-60',
+                              'group-data-[collapsible=icon]:opacity-100'
+                            )} />
+                            <span>
+                              {item.name}
+                            </span>
+                          </Link>
+                        </SidebarMenuButton>
+                      </SidebarMenuItem>
+                    );
+                  }
+
+                  return (
+                    <Collapsible
+                      key={item.name}
+                      asChild
+                      defaultOpen={isRoute(...item.items.map(l => l.url))}
+                      className='group/collapsible'>
+                      <SidebarMenuItem>
+                        <CollapsibleTrigger asChild>
+                          <SidebarMenuButton tooltip={item.name}>
+                            {
+                              item.icon &&
+                              <item.icon />
+                            }
+                            <span className={cn(isRoute(...item.items.map(l => l.url)) && 'font-semibold')}>
+                              {item.name}
+                            </span>
+                            <ChevronRight className='ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90' />
+                          </SidebarMenuButton>
+                        </CollapsibleTrigger>
+                        <CollapsibleContent>
+                          <SidebarMenuSub>
+                            {
+                              item
+                                .items
+                                ?.map(
+                                  subItem => (
+                                    <SidebarMenuSubItem key={subItem.name}>
+                                      <SidebarMenuSubButton asChild>
+                                        <Link
+                                          className={cn(isRoute(subItem.url) && 'font-semibold')}
+                                          to={subItem.url}>
+                                          <item.icon className={cn(
+                                            'opacity-60',
+                                            'group-data-[collapsible=icon]:opacity-100'
+                                          )} />
+                                          <span>
+                                            {subItem.name}
+                                          </span>
+                                        </Link>
+                                      </SidebarMenuSubButton>
+                                    </SidebarMenuSubItem>
+                                  )
+                                )
+                            }
+                          </SidebarMenuSub>
+                        </CollapsibleContent>
+                      </SidebarMenuItem>
+                    </Collapsible>
+                  );
+
+                }
               )
           }
         </SidebarMenu>
