@@ -1,4 +1,4 @@
-import { useQueryGetInfo } from '@/hooks/fetchApi';
+import { useQueryGetInfo } from '@/hooks/queries';
 import { AppRoutes } from './AppRoutes';
 
 export const App = () => {
