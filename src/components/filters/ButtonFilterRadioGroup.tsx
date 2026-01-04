@@ -15,26 +15,20 @@ import {
   Button
 } from '@/components/shadcn';
 
-type TState = IHasOptValue<ISelectOption> & IHasOpen;
+type TState<TValue = string> = IHasOptValue<ISelectOption<any, TValue>> & IHasOpen;
 
-type TProps = IHasOptValue<TNullable<string>> & {
-  onChange: (value?: ISelectOption) => void;
-  options: ISelectOption[];
+type TProps<TValue = string> = IHasOptValue<TNullable<TValue>> & {
+  onChange: (value?: ISelectOption<any, TValue>) => void;
+  options: ISelectOption<any, TValue>[];
   onReset?: () => void;
   disabled?: boolean;
   text: string;
 };
 
-const VARIABLES = {
-  initState: {
-    open: false
-  } as TState
-};
+export const ButtonFilterRadioGroup = <TValue = string>({ text, options, value, disabled, onChange, onReset }: TProps<TValue>) => {
 
-export const ButtonFilterRadioGroup = ({ text, options, value, disabled, onChange, onReset }: TProps) => {
-
-  const [state, setState] = useState<TState>({
-    ...VARIABLES.initState,
+  const [state, setState] = useState<TState<TValue>>({
+    ...{ open: false },
     value: options.find(l => l.value === value)
   });
 
@@ -55,7 +49,7 @@ export const ButtonFilterRadioGroup = ({ text, options, value, disabled, onChang
 
   const handleOnClickBtnReset = () => {
     // Reset value
-    setState(VARIABLES.initState);
+    setState({ open: false });
     // Apply filter
     onChange();
     // Reset
@@ -70,7 +64,7 @@ export const ButtonFilterRadioGroup = ({ text, options, value, disabled, onChang
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button
-            className={`space-x-1 border border-dashed text-xs items-center ${hasValue && 'border-r-0 rounded-r-none'}`}
+            className={`border border-dashed text-xs items-center cursor-pointer ${hasValue && 'border-r-0 rounded-r-none'}`}
             variant={hasValue ? 'secondary' : 'ghost'}
             onClick={handleOnClickButton}
             disabled={disabled}
@@ -80,13 +74,12 @@ export const ButtonFilterRadioGroup = ({ text, options, value, disabled, onChang
             </span>
             {
               hasValue &&
-              <span>:</span>
-            }
-            {
-              hasValue &&
-              <span className='text-red-800 font-semibold'>
-                {state.value!.title}
-              </span>
+              <>
+                <span>:</span>
+                <span className='text-red-800 font-semibold ml-1'>
+                  {state.value!.title}
+                </span>
+              </>
             }
           </Button>
         </DropdownMenuTrigger>
@@ -116,7 +109,7 @@ export const ButtonFilterRadioGroup = ({ text, options, value, disabled, onChang
             <DropdownMenuSeparator />
             <DropdownMenuItem className='p-0'>
               <Button
-                className='w-full h-8 m-0 p-0 text-xs'
+                className='w-full h-8 m-0 p-0 text-xs cursor-pointer'
                 onClick={handleOnClickButtonApply}
                 variant={'default'}
                 size={'sm'}>

@@ -89,7 +89,7 @@ export const ButtonFilterOptions = ({ text, options, value, disabled, renderText
         <DropdownMenuTrigger asChild>
           <Button
             className={cn(
-              'space-x-1 border border-dashed text-xs items-center',
+              'space-x-1 border border-dashed text-xs items-center cursor-pointer',
               hasValue && 'border-r-0 rounded-r-none'
             )}
             variant={hasValue ? 'secondary' : 'ghost'}
@@ -138,7 +138,7 @@ export const ButtonFilterOptions = ({ text, options, value, disabled, renderText
             <DropdownMenuSeparator />
             <DropdownMenuItem className='p-0'>
               <Button
-                className='w-full h-8 m-0 p-0 text-xs'
+                className='w-full h-8 m-0 p-0 text-xs cursor-pointer'
                 onClick={handleOnClickButtonApply}
                 variant={'default'}
                 size={'sm'}>

@@ -1,7 +1,7 @@
 import type { IHasOptData, IHasOptDisabled, IHasOptGroup, IHasOptValue, IHasTitle, IHasId, IHasType } from './has.interface';
 import type { TNomenclatureType } from '@/types';
 
-export interface INomenclature extends IHasTitle, IHasId, IHasType<TNomenclatureType> {
+export interface INomenclature<TId = string, TData = any> extends IHasTitle, IHasId<TId>, IHasType<TNomenclatureType>, IHasOptData<TData> {
 }
 
 export interface IBrand extends IHasTitle, IHasId {
