@@ -161,3 +161,19 @@ export interface IHasOptId<T = string> {
 export interface IHasId<T = string> {
   id: T;
 }
+
+export interface IHasOptCreatedAt<T = Date> {
+  createdAt?: T;
+}
+
+export interface IHasCreatedAt<T = Date> {
+  createdAt: T;
+}
+
+export interface IHasOptUpdatedAt<T = Date> {
+  updatedAt?: T;
+}
+
+export interface IHasUpdatedAt<T = Date> {
+  updatedAt: T;
+}
