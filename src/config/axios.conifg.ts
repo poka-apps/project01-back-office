@@ -1,0 +1,26 @@
+import { ENV } from '@/constants';
+import axiosRoot from 'axios';
+
+export const axios = axiosRoot.create({
+  baseURL: ENV.baseApi,
+  headers: { 'Content-Type': 'application/json' }
+});
+
+axios
+  .interceptors
+  .request
+  .use(
+    config => {
+      const token = localStorage.getItem('access_token')
+
+      if (token) {
+        config.headers = {
+          ...config.headers,
+          Authorization: `Bearer ${token}`
+        } as any;
+      }
+
+      return config;
+    },
+    error => Promise.reject(error)
+  );
