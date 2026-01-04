@@ -1,5 +1,5 @@
+import type { TItemType, TSortType } from '@/types';
 import type { LucideIcon } from 'lucide-react';
-import type { TSortType } from '@/types';
 import type { ReactNode } from 'react';
 
 export interface IHasOptPassword<T = string> {
@@ -184,4 +184,12 @@ export interface IHasOptDate<T = Date> {
 
 export interface IHasDate<T = Date> {
   date: T;
+}
+
+export interface IHasOptItemType<T = TItemType> {
+  itemType?: T;
+}
+
+export interface IHasItemType<T = TItemType> {
+  itemType: T;
 }
