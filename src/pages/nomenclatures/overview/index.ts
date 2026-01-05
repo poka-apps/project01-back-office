@@ -1,2 +1,2 @@
-export * from './LazyOverviewPage';
+export * from './LazyOverviewNomenclaturesPage';
 
