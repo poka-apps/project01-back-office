@@ -1,7 +1,16 @@
+import { buildUrl } from '@/functions';
+
 export const ROUTES = {
   nomenclatures: {
-    equipments: '/nomenclatures/equipments',
-    brands: '/nomenclatures/brands'
+    equipments: {
+      path: 'equipments',
+      route: () => buildUrl(ROUTES.nomenclatures.base, ROUTES.nomenclatures.equipments.path)
+    },
+    brands: {
+      path: 'brands',
+      route: () => buildUrl(ROUTES.nomenclatures.base, ROUTES.nomenclatures.brands.path)
+    },
+    base: '/nomenclatures'
   },
   annonces: '/annonces',
   garages: '/garages',

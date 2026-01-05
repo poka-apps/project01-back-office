@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { AuthLayout, MainLayout } from '@/layouts';
 import { ROUTES } from '@/constants';
 import {
+  LazyNomenclaturesPage,
   LazyEquipmentsPage,
   LazyDashboardPage,
   LazyAnnoncesPage,
@@ -9,7 +10,7 @@ import {
   LazyGaragesPage,
   LazyBrandsPage,
   LazyLoginPage,
-  LazyUsersPage
+  LazyUsersPage,
 } from '@/pages';
 
 export const AppRoutes = () => (
@@ -19,8 +20,11 @@ export const AppRoutes = () => (
       <Route element={<MainLayout />}>
         <Route index element={<LazyDashboardPage />} />
         {/* #region nomenclatures */}
-        <Route path={ROUTES.nomenclatures.equipments} element={<LazyEquipmentsPage />} />
-        <Route path={ROUTES.nomenclatures.brands} element={<LazyBrandsPage />} />
+        <Route path={ROUTES.nomenclatures.base}>
+          <Route index element={<LazyNomenclaturesPage />} />
+          <Route path={ROUTES.nomenclatures.equipments.path} element={<LazyEquipmentsPage />} />
+          <Route path={ROUTES.nomenclatures.brands.path} element={<LazyBrandsPage />} />
+        </Route>
         {/* #endregion */}
         <Route path={ROUTES.annonces} element={<LazyAnnoncesPage />} />
         <Route path={ROUTES.garages} element={<LazyGaragesPage />} />

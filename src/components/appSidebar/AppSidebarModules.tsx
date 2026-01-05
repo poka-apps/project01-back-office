@@ -25,17 +25,17 @@ const CONSTS = {
     },
     {
       name: 'Nomenclatures',
-      url: ROUTES.nomenclatures.equipments,
+      url: ROUTES.nomenclatures.equipments.path,
       icon: List,
       items: [
         {
           name: 'Marques',
-          url: ROUTES.nomenclatures.brands,
+          url: ROUTES.nomenclatures.brands.route(),
           icon: Warehouse
         },
         {
           name: 'Équipements',
-          url: ROUTES.nomenclatures.equipments,
+          url: ROUTES.nomenclatures.equipments.route(),
           icon: Boxes
         }
       ]
