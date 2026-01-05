@@ -1,10 +1,22 @@
-import { SidebarGroupLabel, SidebarMenuButton, SidebarMenuItem, SidebarGroup, SidebarMenu, Collapsible, CollapsibleTrigger, CollapsibleContent, SidebarMenuSub, SidebarMenuSubItem, SidebarMenuSubButton } from '@/components/shadcn';
-import { Boxes, ChevronRight, LayoutDashboard, List, Newspaper, Users, Warehouse } from 'lucide-react';
+import { Boxes, ChevronRight, CircleGauge, LayoutDashboard, List, Newspaper, Type, Users, Warehouse } from 'lucide-react';
 import type { IHasIcon, IHasOptItems, IHasName, IHasUrl } from '@/interfaces';
 import { Link } from 'react-router-dom';
 import { useLocation } from '@/hooks';
 import { ROUTES } from '@/constants';
 import { cn } from '@/functions';
+import {
+  SidebarMenuSubButton,
+  CollapsibleTrigger,
+  CollapsibleContent,
+  SidebarMenuSubItem,
+  SidebarGroupLabel,
+  SidebarMenuButton,
+  SidebarMenuItem,
+  SidebarMenuSub,
+  SidebarGroup,
+  SidebarMenu,
+  Collapsible,
+} from '@/components/shadcn';
 
 const CONSTS = {
   menus: [
@@ -25,13 +37,18 @@ const CONSTS = {
     },
     {
       name: 'Nomenclatures',
-      url: ROUTES.nomenclatures.equipments.path,
+      url: ROUTES.nomenclatures.overview.route(),
       icon: List,
       items: [
         {
+          name: "Vue d'ensemble",
+          url: ROUTES.nomenclatures.overview.route(),
+          icon: CircleGauge
+        },
+        {
           name: 'Marques',
           url: ROUTES.nomenclatures.brands.route(),
-          icon: Warehouse
+          icon: Type
         },
         {
           name: 'Équipements',
@@ -138,7 +155,7 @@ export const AppSidebarModules = () => {
                                         <Link
                                           className={cn(isRoute(subItem.url) && 'font-semibold')}
                                           to={subItem.url}>
-                                          <item.icon className={cn(
+                                          <subItem.icon className={cn(
                                             'opacity-60',
                                             'group-data-[collapsible=icon]:opacity-100'
                                           )} />

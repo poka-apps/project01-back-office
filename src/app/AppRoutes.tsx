@@ -22,6 +22,7 @@ export const AppRoutes = () => (
         {/* #region nomenclatures */}
         <Route path={ROUTES.nomenclatures.base}>
           <Route index element={<LazyOverviewNomenclaturesPage />} />
+          <Route path={ROUTES.nomenclatures.overview.path} element={<LazyOverviewNomenclaturesPage />} />
           <Route path={ROUTES.nomenclatures.equipments.path} element={<LazyEquipmentsPage />} />
           <Route path={ROUTES.nomenclatures.brands.path} element={<LazyBrandsPage />} />
         </Route>
