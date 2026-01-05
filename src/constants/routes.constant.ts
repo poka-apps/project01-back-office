@@ -2,6 +2,10 @@ import { buildUrl } from '@/functions';
 
 export const ROUTES = {
   nomenclatures: {
+    overview: {
+      path: 'overview',
+      route: () => buildUrl(ROUTES.nomenclatures.base, ROUTES.nomenclatures.overview.path)
+    },
     equipments: {
       path: 'equipments',
       route: () => buildUrl(ROUTES.nomenclatures.base, ROUTES.nomenclatures.equipments.path)

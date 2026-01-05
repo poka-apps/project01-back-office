@@ -1,6 +1,6 @@
-const NomenclaturesPage = () => {
+const OverviewPage = () => {
 
-  console.log('Nomenclature page');
+  console.log('Overview page');
 
   return (
     <div className='flex flex-1 flex-col gap-4 p-4 pt-0'>
@@ -15,4 +15,4 @@ const NomenclaturesPage = () => {
 
 };
 
-export default NomenclaturesPage;
+export default OverviewPage;
